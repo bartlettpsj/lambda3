@@ -1,7 +1,8 @@
-package com.paul;
+package main.java.com.example;
 
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -15,10 +16,14 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        var s = func.apply(786);
-        System.out.printf("Result: %s\n", s);
+        // Try Lambda very bsic
+        System.out.printf("Result: %s\n", func.apply(786));
 
-        String[] strings = { "apple", "banana", "peach" };
+        // Playing with Streams
+        String[] strings = { "apple", "banana", "pear", "peach" };
+        var stringStream = Stream.of(strings);
+        System.out.println("Count: " + stringStream.filter(str -> str.startsWith("p")).count());
+
 
         var x = sum.apply(1,sum.apply(2, 3));
         System.out.printf("The sum is %d\n", x);
